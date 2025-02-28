@@ -16,7 +16,7 @@ This is a simple TODO application built with Flask and SQLAlchemy. It allows use
 
 _(Replace this placeholder with an actual screenshot of the app)_
 
-## Technologies Used
+### Technologies Used
 
 *   Flask: A micro web framework for Python.
 *   SQLAlchemy: A Python SQL toolkit and Object Relational Mapper.
