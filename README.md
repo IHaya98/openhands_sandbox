@@ -12,7 +12,7 @@ This is a simple TODO application built with Flask and SQLAlchemy. It allows use
 
 ## App Interface
 
-![App Screenshot](data:image/png;base64,IMAGE_BASE64_PLACEHOLDER)\n\n_(The image above is a placeholder. Replace IMAGE_BASE64_PLACEHOLDER with the actual base64 encoded image data.)_
+![App Screenshot](data:image/png;base64,IMAGE_DATA_PLACEHOLDER)\n\n_(The image above is a placeholder. Replace IMAGE_DATA_PLACEHOLDER with the actual base64 encoded image data.)_
 
 _(Replace this placeholder with an actual screenshot of the app)_
 
