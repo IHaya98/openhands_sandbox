@@ -12,7 +12,7 @@ This is a simple TODO application built with Flask and SQLAlchemy. It allows use
 
 ## App Interface
 
-![App Screenshot](https://via.placeholder.com/600x400)
+![App Screenshot](doc/placeholder.png)
 
 _(Replace this placeholder with an actual screenshot of the app)_
 
