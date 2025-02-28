@@ -10,9 +10,9 @@ This is a simple TODO application built with Flask and SQLAlchemy. It allows use
 *   Mark tasks as complete or incomplete.
 *   Delete tasks.
 
-## App Interface
+## App Interface\n\n![App Screenshot](doc/app_screenshot.png)
 
-![App Screenshot](data:image/png;base64,IMAGE_DATA_PLACEHOLDER)\n\n_(The image above is a placeholder. Replace IMAGE_DATA_PLACEHOLDER with the actual base64 encoded image data.)_
+
 
 _(Replace this placeholder with an actual screenshot of the app)_
 
