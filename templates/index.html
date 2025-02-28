@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .column {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            width: 300px;
+            min-height: 200px;
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task a {
+            text-decoration: none;
+            color: #333;
+        }
+        .task a:hover {
+            color: #007bff;
+        }
+        form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .overdue {
+            background-color: #f8d7da;
+        }
+        .due-today {
+            background-color: #fff3cd;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content" placeholder="Add New Task">
+        <input type="date" name="deadline" id="deadline">
+        <select name="category" id="category">
+            {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.name }}</option>
+            {% else %}
+                <option value="General">General</option>
+            {% endfor %}
+            <option value="New Category">New Category</option>
+        </select>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <div class="container">
+        <div class="column">
+            <h2>TODO</h2>
+            <ul>
+                {% for task in tasks %}
+                    {% if not task.completed and (not task.deadline or task.deadline >= today()) %}
+                        <li class="task {% if task.deadline and task.deadline < today() %}overdue{% elif task.deadline == today() %}due-today{% endif %}">
+                            {{ task.content }}
+                            {% if task.deadline %}
+                                (Due: {{ task.deadline }})
+                            {% endif %}
+                            <div>
+                                <a href="/delete/{{ task.id }}">Delete</a>
+                                <a href="/complete/{{ task.id }}">Complete</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Upcoming</h2>
+            <ul>
+                {% for task in tasks %}
+                    {% if not task.completed and task.deadline and task.deadline > today() %}
+                        <li class="task">
+                            {{ task.content }}
+                            (Due: {{ task.deadline }})
+                            <div>
+                                <a href="/delete/{{ task.id }}">Delete</a>
+                                <a href="/complete/{{ task.id }}">Complete</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Completed</h2>
+            <ul>
+                {% for task in tasks %}
+                    {% if task.completed %}
+                        <li class="task">
+                            {{ task.content }}
+                            <div>
+                                <a href="/delete/{{ task.id }}">Delete</a>
+                                <a href="/incomplete/{{ task.id }}">Incomplete</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
