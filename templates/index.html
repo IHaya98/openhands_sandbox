@@ -102,30 +102,12 @@
             <h2>TODO</h2>
             <ul>
                 {% for task in tasks %}
-                    {% if not task.completed and (not task.deadline or task.deadline >= today()) %}
+                    {% if not task.completed %}
                         <li class="task {% if task.deadline and task.deadline < today() %}overdue{% elif task.deadline == today() %}due-today{% endif %}">
                             {{ task.content }}
                             {% if task.deadline %}
                                 (Due: {{ task.deadline }})
                             {% endif %}
-                            <div>
-                                <a href="/delete/{{ task.id }}">Delete</a>
-                                <a href="/complete/{{ task.id }}">Complete</a>
-                            </div>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div class="column">
-            <h2>Upcoming</h2>
-            <ul>
-                {% for task in tasks %}
-                    {% if not task.completed and task.deadline and task.deadline > today() %}
-                        <li class="task">
-                            {{ task.content }}
-                            (Due: {{ task.deadline }})
                             <div>
                                 <a href="/delete/{{ task.id }}">Delete</a>
                                 <a href="/complete/{{ task.id }}">Complete</a>
