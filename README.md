@@ -46,6 +46,10 @@ Please note that this project is released with a [Code of Conduct](CODE_OF_CONDU
 
 *   This project was inspired by the need for a simple and effective TODO application.
 
+## View the Design Document
+
+The basic design document is available on GitHub Pages: [https://IHaya98.github.io/openhands_sandbox](https://IHaya98.github.io/openhands_sandbox)
+
 ## Setup Instructions
 
 1.  Clone the repository:
