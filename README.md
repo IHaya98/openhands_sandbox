@@ -10,9 +10,9 @@ This is a simple TODO application built with Flask and SQLAlchemy. It allows use
 *   Mark tasks as complete or incomplete.
 *   Delete tasks.
 
-## App Interface
+## App Interface\n\n![App Screenshot](doc/app_screenshot.png)
 
-![App Screenshot](doc/placeholder.png)
+
 
 _(Replace this placeholder with an actual screenshot of the app)_
 
@@ -45,6 +45,10 @@ Please note that this project is released with a [Code of Conduct](CODE_OF_CONDU
 ## Acknowledgements
 
 *   This project was inspired by the need for a simple and effective TODO application.
+
+## View the Design Document
+
+The basic design document is available on GitHub Pages: [https://IHaya98.github.io/openhands_sandbox](https://IHaya98.github.io/openhands_sandbox)
 
 ## Setup Instructions
 
